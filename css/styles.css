@@ -58,16 +58,24 @@
   --font-main: "Inter", sans-serif;
 
   /* Texto */
-  --color-text-heading: #111111;   /* nombre, títulos de sección y de puesto */
-  --color-text-body: #555555;      /* párrafos, subtítulo, ubicación */
-  --color-text-meta: #6d6d6d;      /* fechas: información secundaria */
+  --color-text-heading: #111111;
+  /* nombre, títulos de sección y de puesto */
+  --color-text-body: #555555;
+  /* párrafos, subtítulo, ubicación */
+  --color-text-meta: #6d6d6d;
+  /* fechas: información secundaria */
+  --color-card-border: #e5e5e5;
+  /* borde de la tarjeta de experiencia de escritura */
 
   /* Superficies */
-  --color-bg-page: #ffffff;        /* fondo de la página */
-  --color-bg-tag: #f6f6f6;         /* fondo de la píldora "website.com" */
+  --color-bg-page: #ffffff;
+  /* fondo de la página */
+  --color-bg-tag: #f6f6f6;
+  /* fondo de la píldora "website.com" */
 
   /* Bordes */
-  --color-border: #e5e5e5;         /* marco de las imágenes */
+  --color-border: #e5e5e5;
+  /* marco de las imágenes */
 }
 
 * {
@@ -106,7 +114,7 @@ body {
   margin-left: 1rem;
 }
 
-.profile__data > * {
+.profile__data>* {
   margin-bottom: 0.2rem;
 }
 
@@ -160,13 +168,28 @@ body {
 
 }
 
-.work-experience {
+.work-experience,
+.writing-experience,
+.speaking-experience,
+.side-projects,
+.education {
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
 }
 
-.work-experience__date {
+.contact {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.3rem;
+}
+
+.work-experience__date,
+.writing-experience__date,
+.speaking-experience__date,
+.side-projects__date,
+.education__date,
+.contact__platform {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.8;
@@ -174,12 +197,13 @@ body {
   flex: 0 0 7rem;
 }
 
-.work-experience .details {
-  flex: 1;
-  min-width: 0;
-}
-
-.work-experience__title {
+.work-experience__title,
+.writing-experience__title,
+.speaking-experience__title,
+.side-projects__title,
+.education__title,
+.contact__username,
+.card__title {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.8;
@@ -187,11 +211,47 @@ body {
   overflow-wrap: break-word;
 }
 
-.work-experience__location {
+.work-experience__title::after,
+.writing-experience__title::after,
+.speaking-experience__title::after,
+.side-projects__title::after,
+.education__title::after,
+.contact__username::after {
+  content: "↗";
+  vertical-align: super;
+  margin-left: 0.2em;
+}
+
+.work-experience__location,
+.writing-experience__collaboration,
+.speaking-experience__location,
+.education__location,
+.card__description {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.8;
   color: var(--color-text-body);
+}
+
+.writing-experience__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 12rem;
+  margin: 1.5rem 0 1rem 0;
+  border: 1px solid var(--color-card-border);
+  border-radius: 8px;
+}
+
+.card__text {
+  padding: 0.7rem 1.2rem;
+}
+
+.card__image {
+  border-radius: 8px 8px 0 0;
+  width: 12.5rem;
+  height: 5.625rem;
+  object-fit: cover;
 }
 
 .images-experience {
@@ -209,5 +269,21 @@ body {
 @media (min-width: 768px) {
   .images-experience {
     flex-direction: row;
+  }
+
+  .writing-experience__card {
+    flex-direction: row;
+    align-items: center;
+    width: 30rem;
+  }
+
+  .card__image {
+    width: 9.5rem;
+    height: 5.5625rem;
+    border-radius: 8px 0 0 8px;
+  }
+
+  .speaking-experience__title--underlined {
+    text-decoration: underline;
   }
 }
